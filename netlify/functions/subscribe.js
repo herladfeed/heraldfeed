@@ -3,36 +3,42 @@ exports.handler = async function(event) {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  const { email } = JSON.parse(event.body || "{}");
+  try {
+    const { email } = JSON.parse(event.body || "{}");
 
-  if (!email) {
+    const response = await fetch(
+      `https://api.beehiiv.com/v2/publications/${process.env.BEEHIIV_PUBLICATION_ID}/subscriptions`,
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.BEEHIIV_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          reactivate_existing: true,
+          send_welcome_email: true,
+          utm_source: "HeraldFeed Popup"
+        })
+      }
+    );
+
+    const text = await response.text();
+
+    console.log("Beehiiv status:", response.status);
+    console.log("Beehiiv response:", text);
+
     return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Email required" })
+      statusCode: response.status,
+      body: text
+    };
+
+  } catch (error) {
+    console.error("Function error:", error.message);
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message })
     };
   }
-
-  const res = await fetch(
-    `https://api.beehiiv.com/v2/publications/${process.env.BEEHIIV_PUBLICATION_ID}/subscriptions`,
-    {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.BEEHIIV_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email,
-        reactivate_existing: true,
-        send_welcome_email: true,
-        utm_source: "HeraldFeed Popup"
-      })
-    }
-  );
-
-  const data = await res.json();
-
-  return {
-    statusCode: res.status,
-    body: JSON.stringify(data)
-  };
 };

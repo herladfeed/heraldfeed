@@ -193,6 +193,7 @@ object-fit:contain;
 <a href="index.html">Home</a>
 <a href="mens.html">Men's</a>
 <a href="sales.html">Sale</a>
+<a href="all.html">All</a>
 </div>
 </nav>
 
@@ -244,7 +245,27 @@ return [...productList].sort(() => Math.random() - 0.5);
 }
 
 function displayProducts(){
-grid.innerHTML = "";
+  const selectedBrands = Array.from(checkboxes)
+    .filter(box => box.checked)
+    .map(box => box.value);
+
+  let filteredProducts = products.filter(product => product.category === "mens");
+
+  if(selectedBrands.length > 0){
+    filteredProducts = filteredProducts.filter(product =>
+      selectedBrands.includes(product.brand)
+    );
+  }
+
+  const shuffledProducts = shuffleProducts(filteredProducts);
+
+  grid.innerHTML = shuffledProducts.map(product => `
+    <a class="product" href="${product.link}" target="_blank">
+      ${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
+      <img src="${product.image}" loading="lazy" onerror="this.parentElement.remove()">
+    </a>
+  `).join("");
+}
 
 const selectedBrands = Array.from(checkboxes)
 .filter(box => box.checked)
@@ -270,7 +291,7 @@ ${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
 </a>
 `;
 });
-}
+
 
 checkboxes.forEach(box => {
 box.addEventListener("change", displayProducts);

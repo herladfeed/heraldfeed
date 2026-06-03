@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DROPS</title>
+<title>Home</title>
 
 <style>
 *{
@@ -427,9 +427,18 @@ gap:30px;
 
 <p>Weekly updates on the best new arrivals, restocks and streetwear sales.</p>
 
-<input type="email" placeholder="Enter your email">
+<input
+type="email"
+id="email-input"
+placeholder="Enter your email">
 
-<button class="subscribe-btn">Join free</button>
+<button
+class="subscribe-btn"
+id="subscribe-btn">
+Join free
+</button>
+
+<p id="subscribe-message"></p>
 
 </div>
 
@@ -444,72 +453,115 @@ const sideMenu = document.getElementById("side-menu");
 const checkboxes = document.querySelectorAll(".side-menu input");
 
 menuButton.addEventListener("click", (event) => {
-event.stopPropagation();
-sideMenu.classList.toggle("show");
+  event.stopPropagation();
+  sideMenu.classList.toggle("show");
 });
 
 document.addEventListener("click", (event) => {
-if (
-sideMenu.classList.contains("show") &&
-!sideMenu.contains(event.target) &&
-event.target !== menuButton
-) {
-sideMenu.classList.remove("show");
-}
+  if (
+    sideMenu.classList.contains("show") &&
+    !sideMenu.contains(event.target) &&
+    event.target !== menuButton
+  ) {
+    sideMenu.classList.remove("show");
+  }
 });
 
 document.addEventListener("keydown", (event) => {
-if (event.key === "Escape") {
-sideMenu.classList.remove("show");
-}
+  if (event.key === "Escape") {
+    sideMenu.classList.remove("show");
+    popup.style.display = "none";
+  }
 });
 
-function shuffleProducts(productList){
-return [...productList].sort(() => Math.random() - 0.5);
+function shuffleProducts(productList) {
+  return [...productList].sort(() => Math.random() - 0.5);
 }
 
-function displayProducts(){
-grid.innerHTML = "";
+function displayProducts() {
+  const selectedBrands = Array.from(checkboxes)
+    .filter(box => box.checked)
+    .map(box => box.value);
 
-const selectedBrands = Array.from(checkboxes)
-.filter(box => box.checked)
-.map(box => box.value);
+  let filteredProducts = products;
 
-let filteredProducts = products;
+  if (selectedBrands.length > 0) {
+    filteredProducts = filteredProducts.filter(product =>
+      selectedBrands.includes(product.brand)
+    );
+  }
 
-if(selectedBrands.length > 0){
-filteredProducts = products.filter(product =>
-selectedBrands.includes(product.brand)
-);
-}
+  const shuffledProducts = shuffleProducts(filteredProducts).slice(0, 40);
 
-const shuffledProducts = shuffleProducts(filteredProducts).slice(0, 40);
-
-shuffledProducts.forEach(product => {
-grid.innerHTML += `
-<a class="product" href="${product.link}" target="_blank">
-${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
-<img src="${product.image}" onerror="this.parentElement.remove()">
-</a>
-`;
-});
+  grid.innerHTML = shuffledProducts.map(product => `
+    <a class="product" href="${product.link}" target="_blank">
+      ${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
+      <img
+        src="${product.image}"
+        loading="lazy"
+        onerror="this.parentElement.remove()">
+    </a>
+  `).join("");
 }
 
 checkboxes.forEach(box => {
-box.addEventListener("change", displayProducts);
+  box.addEventListener("change", displayProducts);
 });
 
 displayProducts();
 
 const popup = document.getElementById("email-popup");
 const closePopup = document.getElementById("close-popup");
+const emailInput = document.getElementById("email-input");
+const subscribeBtn = document.getElementById("subscribe-btn");
+const subscribeMessage = document.getElementById("subscribe-message");
 
 setTimeout(() => {
-popup.style.display = "flex";
+  popup.style.display = "flex";
 }, 4000);
 
 closePopup.addEventListener("click", () => {
-popup.style.display = "none";
+  popup.style.display = "none";
+});
+
+subscribeBtn.addEventListener("click", async () => {
+  const email = emailInput.value.trim();
+
+  if (!email) {
+    subscribeMessage.textContent = "Please enter your email.";
+    return;
+  }
+
+  subscribeBtn.disabled = true;
+  subscribeBtn.textContent = "Joining...";
+  subscribeMessage.textContent = "";
+
+  try {
+    const response = await fetch("/.netlify/functions/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (response.ok) {
+      subscribeMessage.textContent = "You're subscribed!";
+      emailInput.value = "";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 1500);
+    } else {
+      subscribeMessage.textContent = "Something went wrong. Try again.";
+    }
+  } catch (error) {
+    console.error(error);
+    subscribeMessage.textContent = "Something went wrong. Try again.";
+  }
+
+  subscribeBtn.disabled = false;
+  subscribeBtn.textContent = "Join free";
 });
 </script>
 

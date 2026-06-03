@@ -1,120 +1,258 @@
 const products = [
 
- 
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/JEANS_e6970754-6d27-4264-81bd-5fec72b395f4.jpg?v=1776935652&width=350",
+    link: "https://www.motelrocks.com/products/motel-rocks-gift-voucher",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
 
   {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I033352_01_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/helston-jacket-blue-destroy-wash-splatter-1294",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036856_1C_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-painter-polo-dark-navy-destroy-wash-splatter-921",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I033352_89_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/helston-jacket-black-destroy-wash-splatter-1293",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I034733_01_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/landon-pant-blue-destroy-wash-splatter-1233",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036853_1C_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-painter-t-shirt-dark-navy-destroy-wash-splatter-930",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037020_01_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-single-knee-short-blue-destroy-wash-splatter-668",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036913_89_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-painter-jacket-black-destroy-wash-splatter-774",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036913_1C_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-painter-jacket-dark-navy-destroy-wash-splatter-773",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036853_89_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-painter-t-shirt-black-destroy-wash-splatter-929",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036913_47_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-painter-jacket-tobacco-destroy-wash-splatter-775",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036899_1C_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/painter-sweatshirt-dark-navy-destroy-wash-splatter-813",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036853_47_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-painter-t-shirt-tobacco-destroy-wash-splatter-931",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036899_3RF_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/painter-sweatshirt-shady-green-destroy-wash-splatter-812",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037020_89_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-single-knee-short-black-destroy-wash-splatter-667",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036919_01_0L-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/l-s-painter-shirt-blue-heavy-stone-splatter-762",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036899_47_EJ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/painter-sweatshirt-tobacco-destroy-wash-splatter-810",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036870_89_17-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-double-knee-short-black-destroy-wash-283",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037539_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-archive-xxx-t-shirt-white-54",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036483_07E_4O-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/double-knee-short-dusty-h-brown-stone-canvas-204",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+{
     image: "https://www.motelrocks.com/cdn/shop/files/MIREA-TOP-SEQUIN-KNIT-DARK-BROWN-BRIZID-BALLOON-TROUSER-CRKL-STN-KHAKI-10.jpg?crop=center&format=pjpg&v=1780236313&width=1024",
     link: "https://www.motelrocks.com/products/mirea-top-sequin-knit-dark-brown-9",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/LURE-TOP-OLIE-SKIRT-R-JRY-BTR-CHOC-LEMON-0660_50f08d05-9907-448d-a320-7d8a53b7a84d.jpg?crop=center&format=pjpg&v=1780045682&width=1024",
     link: "https://www.motelrocks.com/products/lure-top-r-jry-btr-choc-ch04-lemon-yl02",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/LURE-TOP-OLIE-SKIRT-R-JRY-BTR-CHOC-LEMON-0780_f42ae2a2-bddf-4eda-aed0-794968f4cf50.jpg?crop=center&format=pjpg&v=1780046012&width=1024",
     link: "https://www.motelrocks.com/products/olie-skirt-r-jry-btr-choc-ch04-lmn-yl02",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/LUE-BANDEAU-TOP-R-JRY-CHOC-BROWN-AVI-SWIM-SHORT-BROWN-BLUE-LINEAR-STRIPE-W-TIE-WAIST-2-copy_0efef420-c905-4a58-b244-365c57d2dfd5.jpg?crop=center&format=pjpg&v=1780295276&width=1024",
     link: "https://www.motelrocks.com/products/lue-bandeau-top-r-jry-choc-brown-ch02",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/ESPERA-WRAP-TOP-MIXED-STRIPE-ORANGE-YASU-RUFFLE-HEM-MINI-SKIRT-WHITE3_bae39ef2-8333-48fe-a227-a0d5466ab052.jpg?crop=center&format=pjpg&v=1780290000&width=1024",
     link: "https://www.motelrocks.com/products/espera-wrp-top-mixed-strpe-orange-or10",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/Yasu-Ruffle-Hem-Mini-Skirt-in-Poplin-White-FILM2.jpg?crop=center&format=pjpg&v=1780289186&width=1024",
     link: "https://www.motelrocks.com/products/yasu-ruffle-hem-mini-skirt-poplin-white",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/MIREA-TOP-SEQUIN-KNIT-DARK-BROWN-BRIZID-BALLOON-TROUSER-CRKL-STN-KHAKI2791.jpg?crop=center&format=pjpg&v=1780236640&width=1024",
     link: "https://www.motelrocks.com/products/brizid-balloon-trouser-crkl-stn-khki-44",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/MALIHA-PONCHO-CROCHET-KNIT-SILVER-DENIM-CAPRI-JEANS-DIRTY-GREEN-1065.jpg?crop=center&format=pjpg&v=1780289799&width=1024",
     link: "https://www.motelrocks.com/products/maliha-poncho-crochet-knit-silver",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/CIANA-HOT-PANT-MESH-NEUTRAL-CAMO-GREEN-0298.jpg?crop=center&format=pjpg&v=1780037271&width=1024",
     link: "https://www.motelrocks.com/products/ciana-hot-pant-mesh-neutral-camo-green",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/DOMAS-TOP-W-TIE-KNIT-LEMONGRASS-EUNIA-SHORT-ADRENALINE-RED-0580.jpg?crop=center&format=pjpg&v=1780038807&width=1024",
     link: "https://www.motelrocks.com/products/domas-top-w-tie-knit-lemon-grass-b6292",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/VELORIA-MINI-DRESS-DARK-ROSE.jpg?crop=center&format=pjpg&v=1780289305&width=1024",
     link: "https://www.motelrocks.com/products/veloria-mini-dress-dark-rose-102",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/EMBERLO-TOP-ORANGE-MIXED-STRIPE-15351.jpg?crop=center&format=pjpg&v=1780039597&width=1024",
     link: "https://www.motelrocks.com/products/emberlo-top-mixed-stripe-orange-or10",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/TUWIRA-DRESS-GREEN-NEUTRAL-CAMO-14838.jpg?crop=center&format=pjpg&v=1780226743&width=1024",
     link: "https://www.motelrocks.com/products/tuwira-mini-dress-msh-lace-ntrl-camo-gr",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/OLSA-SKIRT-SEQUIN-DARK-BROWN-17007.jpg?crop=center&format=pjpg&v=1780224195&width=1024",
     link: "https://www.motelrocks.com/products/olsa-mini-skirt-sqn-knit-dark-brown-9",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/RASANI-TOP-GREEN-NEUTRAL-CAMO-16318.jpg?crop=center&format=pjpg&v=1780225523&width=1024",
     link: "https://www.motelrocks.com/products/rasani-top-cntrt-msh-lace-ntral-camo-gr",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/CODAMO-DRESS-SEQUIN-DARK-BROWN-15042.jpg?crop=center&format=pjpg&v=1780280153&width=1024",
     link: "https://www.motelrocks.com/products/codamo-mini-dress-sqn-knit-dark-brown-9",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I036867_3TW_17-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/og-arcan-jacket-tobacco-tobacco-destroy-wash-300",
     category: "mens",

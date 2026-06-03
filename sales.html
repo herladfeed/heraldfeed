@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sale</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:white;
+}
+
+nav{
+width:100%;
+padding:25px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #e5e5e5;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:black;
+font-size:16px;
+}
+
+.menu-button{
+background:none;
+border:none;
+font-size:28px;
+cursor:pointer;
+}
+
+.side-menu{
+position:fixed;
+top:0;
+left:-320px;
+width:260px;
+height:100vh;
+background:white;
+border-right:1px solid #e5e5e5;
+box-shadow:4px 0 20px rgba(0,0,0,0.08);
+padding:30px 25px;
+z-index:2000;
+transition:0.3s ease;
+}
+
+.side-menu.show{
+left:0;
+}
+
+.side-menu h3{
+margin-bottom:15px;
+}
+
+.side-menu label{
+display:block;
+margin-bottom:12px;
+font-size:14px;
+cursor:pointer;
+}
+
+.side-menu input{
+margin-right:8px;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px 40px;
+}
+
+.hero h1{
+font-size:48px;
+letter-spacing:4px;
+}
+
+.grid{
+width:95%;
+max-width:1600px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+padding-bottom:60px;
+}
+
+.product{
+position:relative;
+display:block;
+}
+
+.product img{
+width:100%;
+height:350px;
+object-fit:contain;
+display:block;
+transition:0.3s ease;
+}
+
+.product img:hover{
+transform:scale(1.03);
+}
+
+.sale-badge{
+position:absolute;
+top:10px;
+left:10px;
+background:black;
+color:white;
+font-size:12px;
+letter-spacing:1px;
+padding:6px 10px;
+z-index:10;
+}
+.sale-badge{
+position:absolute;
+top:10px;
+left:10px;
+background:black;
+color:white;
+font-size:12px;
+letter-spacing:1px;
+padding:6px 10px;
+z-index:10;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:700px){
+
+nav{
+padding:20px;
+}
+
+nav div{
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+nav a{
+font-size:16px;
+margin-left:0;
+}
+
+h1{
+font-size:48px;
+padding:60px 20px 40px;
+line-height:1.1;
+}
+
+.grid{
+width:95%;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.product img{
+height:260px;
+object-fit:contain;
+}
+
+}
+
+</style>
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<button id="menu-button" class="menu-button">☰</button>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="mens.html">Men's</a>
+<a href="womens.html">Women's</a>
+</div>
+
+</nav>
+
+<div id="side-menu" class="side-menu">
+
+<h3>Filter Brands</h3>
+
+<label><input type="checkbox" value="BBC"> BBC</label>
+<label><input type="checkbox" value="BAPE"> BAPE</label>
+<label><input type="checkbox" value="Motel Rocks"> Motel Rocks</label>
+<label><input type="checkbox" value="Hollister"> Hollister</label>
+<label><input type="checkbox" value="Urban Outfitters"> Urban Outfitters</label>
+<label><input type="checkbox" value="Carhartt"> Carhartt</label>
+<label><input type="checkbox" value="YEEZY"> YEEZY</label>
+
+</div>
+
+<section class="hero">
+<h1>SALE</h1>
+</section>
+
+<section class="grid" id="product-grid"></section>
+
+<script src="products.js"></script>
+
+<script>
+const grid = document.getElementById("product-grid");
+const menuButton = document.getElementById("menu-button");
+const sideMenu = document.getElementById("side-menu");
+const checkboxes = document.querySelectorAll(".side-menu input");
+
+menuButton.addEventListener("click", (event) => {
+event.stopPropagation();
+sideMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", (event) => {
+if (
+sideMenu.classList.contains("show") &&
+!sideMenu.contains(event.target) &&
+event.target !== menuButton
+) {
+sideMenu.classList.remove("show");
+}
+});
+
+function shuffleProducts(productList){
+return [...productList].sort(() => Math.random() - 0.5);
+}
+
+function displayProducts(){
+grid.innerHTML = "";
+
+const selectedBrands = Array.from(checkboxes)
+.filter(box => box.checked)
+.map(box => box.value);
+
+let filteredProducts = products.filter(
+product => product.sale === true
+);
+
+if(selectedBrands.length > 0){
+filteredProducts = filteredProducts.filter(product =>
+selectedBrands.includes(product.brand)
+);
+}
+
+const shuffledProducts = shuffleProducts(filteredProducts);
+
+shuffledProducts.forEach(product => {
+grid.innerHTML += `
+<a class="product" href="${product.link}" target="_blank">
+${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
+<img src="${product.image}" onerror="this.parentElement.remove()">
+</a>
+`;
+});
+}
+
+checkboxes.forEach(box => {
+box.addEventListener("change", displayProducts);
+});
+
+displayProducts();
+</script>
+
+</body>
+</html>

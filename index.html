@@ -470,7 +470,6 @@ document.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     sideMenu.classList.remove("show");
-    popup.style.display = "none";
   }
 });
 
@@ -516,12 +515,22 @@ const emailInput = document.getElementById("email-input");
 const subscribeBtn = document.getElementById("subscribe-btn");
 const subscribeMessage = document.getElementById("subscribe-message");
 
-setTimeout(() => {
-  popup.style.display = "flex";
-}, 4000);
+if (!localStorage.getItem("popupClosed")) {
+  setTimeout(() => {
+    popup.style.display = "flex";
+  }, 4000);
+}
 
 closePopup.addEventListener("click", () => {
   popup.style.display = "none";
+  localStorage.setItem("popupClosed", "true");
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    popup.style.display = "none";
+    localStorage.setItem("popupClosed", "true");
+  }
 });
 
 subscribeBtn.addEventListener("click", async () => {
@@ -546,8 +555,10 @@ subscribeBtn.addEventListener("click", async () => {
     });
 
     if (response.ok) {
-      subscribeMessage.textContent = "You're subscribed!";
+      subscribeMessage.textContent = "You're in. Check your inbox.";
       emailInput.value = "";
+
+      localStorage.setItem("popupClosed", "true");
 
       setTimeout(() => {
         popup.style.display = "none";

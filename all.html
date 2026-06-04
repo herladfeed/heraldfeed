@@ -18,79 +18,6 @@ font-family:Arial,sans-serif;
 background:white;
 }
 
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:5000;
-}
-
-.popup-content{
-background:white;
-padding:40px;
-width:90%;
-max-width:420px;
-text-align:center;
-position:relative;
-animation:popupFade 0.3s ease;
-}
-
-.popup-content h2{
-font-size:28px;
-letter-spacing:3px;
-margin-bottom:15px;
-}
-
-.popup-content p{
-font-size:15px;
-color:#666;
-margin-bottom:25px;
-}
-
-.popup-content input{
-width:100%;
-padding:14px;
-border:1px solid #ddd;
-margin-bottom:15px;
-font-size:15px;
-}
-
-.subscribe-btn{
-width:100%;
-padding:14px;
-background:black;
-color:white;
-border:none;
-font-size:15px;
-cursor:pointer;
-}
-
-#close-popup{
-position:absolute;
-top:10px;
-right:15px;
-background:none;
-border:none;
-font-size:28px;
-cursor:pointer;
-}
-
-@keyframes popupFade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
 /* NAVBAR */
 
 nav{
@@ -247,8 +174,21 @@ nav{
 padding:20px;
 }
 
+.nav-links{
+gap:15px;
+}
+
+.nav-links a{
+font-size:14px;
+}
+
 .grid{
 grid-template-columns:repeat(2,1fr);
+}
+
+.product img{
+height:260px;
+object-fit:contain;
 }
 
 .hero h1{
@@ -266,6 +206,7 @@ font-size:34px;
 <button id="menu-button" class="menu-button">☰</button>
 
 <div class="nav-links">
+<a href="index.html">Home</a>
 <a href="mens.html">Men's</a>
 <a href="womens.html">Women's</a>
 <a href="sales.html">Sale</a>
@@ -290,8 +231,8 @@ font-size:34px;
 </div>
 
 <section class="hero">
-<h1>NEW DROPS</h1>
-<p>Curated streetwear releases updated daily.</p>
+<h1>ALL DROPS</h1>
+<p>Browse every latest streetwear find.</p>
 </section>
 
 <section class="grid" id="product-grid"></section>
@@ -305,28 +246,28 @@ const sideMenu = document.getElementById("side-menu");
 const checkboxes = document.querySelectorAll(".side-menu input");
 
 menuButton.addEventListener("click", (event) => {
-event.stopPropagation();
-sideMenu.classList.toggle("show");
+  event.stopPropagation();
+  sideMenu.classList.toggle("show");
 });
 
 document.addEventListener("click", (event) => {
-if (
-sideMenu.classList.contains("show") &&
-!sideMenu.contains(event.target) &&
-event.target !== menuButton
-) {
-sideMenu.classList.remove("show");
-}
+  if (
+    sideMenu.classList.contains("show") &&
+    !sideMenu.contains(event.target) &&
+    event.target !== menuButton
+  ) {
+    sideMenu.classList.remove("show");
+  }
 });
 
 document.addEventListener("keydown", (event) => {
-if (event.key === "Escape") {
-sideMenu.classList.remove("show");
-}
+  if (event.key === "Escape") {
+    sideMenu.classList.remove("show");
+  }
 });
 
 function shuffleProducts(productList){
-return [...productList].sort(() => Math.random() - 0.5);
+  return [...productList].sort(() => Math.random() - 0.5);
 }
 
 function displayProducts(){
@@ -334,7 +275,7 @@ function displayProducts(){
     .filter(box => box.checked)
     .map(box => box.value);
 
-  let filteredProducts = products.filter(product => product.category === "mens");
+  let filteredProducts = products;
 
   if(selectedBrands.length > 0){
     filteredProducts = filteredProducts.filter(product =>
@@ -347,53 +288,19 @@ function displayProducts(){
   grid.innerHTML = shuffledProducts.map(product => `
     <a class="product" href="${product.link}" target="_blank">
       ${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
-      <img src="${product.image}" loading="lazy" onerror="this.parentElement.remove()">
+      <img
+        src="${product.image}"
+        loading="lazy"
+        onerror="this.parentElement.remove()">
     </a>
   `).join("");
 }
 
-const selectedBrands = Array.from(checkboxes)
-.filter(box => box.checked)
-.map(box => box.value);
-
-let filteredProducts = products;
-
-if(selectedBrands.length > 0){
-filteredProducts = products.filter(product =>
-selectedBrands.includes(product.brand)
-);
-}
-
-const shuffledProducts = shuffleProducts(filteredProducts);
-
-shuffledProducts.forEach(product => {
-grid.innerHTML += `
-<a class="product" href="${product.link}" target="_blank">
-${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
-<img src="${product.image}" onerror="this.parentElement.remove()">
-</a>
-`;
-});
-
-
 checkboxes.forEach(box => {
-box.addEventListener("change", displayProducts);
+  box.addEventListener("change", displayProducts);
 });
 
 displayProducts();
-
-
-const popup = document.getElementById("email-popup");
-const closePopup = document.getElementById("close-popup");
-
-setTimeout(() => {
-popup.style.display = "flex";
-}, 4000);
-
-closePopup.addEventListener("click", () => {
-popup.style.display = "none";
-});
-
 </script>
 
 </body>

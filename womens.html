@@ -130,17 +130,6 @@ letter-spacing:1px;
 padding:6px 10px;
 z-index:10;
 }
-.sale-badge{
-position:absolute;
-top:10px;
-left:10px;
-background:black;
-color:white;
-font-size:12px;
-letter-spacing:1px;
-padding:6px 10px;
-z-index:10;
-}
 
 /* MOBILE FIX */
 
@@ -181,12 +170,12 @@ object-fit:contain;
 }
 
 </style>
-</style>
 </head>
 
 <body>
 
 <nav>
+
 <button id="menu-button" class="menu-button">☰</button>
 
 <div class="nav-links">
@@ -195,6 +184,7 @@ object-fit:contain;
 <a href="sales.html">Sale</a>
 <a href="all.html">All</a>
 </div>
+
 </nav>
 
 <div id="side-menu" class="side-menu">
@@ -226,22 +216,28 @@ const sideMenu = document.getElementById("side-menu");
 const checkboxes = document.querySelectorAll(".side-menu input");
 
 menuButton.addEventListener("click", (event) => {
-event.stopPropagation();
-sideMenu.classList.toggle("show");
+  event.stopPropagation();
+  sideMenu.classList.toggle("show");
 });
 
 document.addEventListener("click", (event) => {
-if (
-sideMenu.classList.contains("show") &&
-!sideMenu.contains(event.target) &&
-event.target !== menuButton
-) {
-sideMenu.classList.remove("show");
-}
+  if (
+    sideMenu.classList.contains("show") &&
+    !sideMenu.contains(event.target) &&
+    event.target !== menuButton
+  ) {
+    sideMenu.classList.remove("show");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    sideMenu.classList.remove("show");
+  }
 });
 
 function shuffleProducts(productList){
-return [...productList].sort(() => Math.random() - 0.5);
+  return [...productList].sort(() => Math.random() - 0.5);
 }
 
 function displayProducts(){
@@ -249,7 +245,9 @@ function displayProducts(){
     .filter(box => box.checked)
     .map(box => box.value);
 
-  let filteredProducts = products.filter(product => product.category === "mens");
+  let filteredProducts = products.filter(product =>
+    product.category === "womens"
+  );
 
   if(selectedBrands.length > 0){
     filteredProducts = filteredProducts.filter(product =>
@@ -262,39 +260,16 @@ function displayProducts(){
   grid.innerHTML = shuffledProducts.map(product => `
     <a class="product" href="${product.link}" target="_blank">
       ${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
-      <img src="${product.image}" loading="lazy" onerror="this.parentElement.remove()">
+      <img
+        src="${product.image}"
+        loading="lazy"
+        onerror="this.parentElement.remove()">
     </a>
   `).join("");
 }
 
-const selectedBrands = Array.from(checkboxes)
-.filter(box => box.checked)
-.map(box => box.value);
-
-let filteredProducts = products.filter(
-product => product.category === "womens"
-);
-
-if(selectedBrands.length > 0){
-filteredProducts = filteredProducts.filter(product =>
-selectedBrands.includes(product.brand)
-);
-}
-
-const shuffledProducts = shuffleProducts(filteredProducts);
-
-shuffledProducts.forEach(product => {
-grid.innerHTML += `
-<a class="product" href="${product.link}" target="_blank">
-${product.sale === true ? '<span class="sale-badge">SALE</span>' : ''}
-<img src="${product.image}" onerror="this.parentElement.remove()">
-</a>
-`;
-});
-
-
 checkboxes.forEach(box => {
-box.addEventListener("change", displayProducts);
+  box.addEventListener("change", displayProducts);
 });
 
 displayProducts();

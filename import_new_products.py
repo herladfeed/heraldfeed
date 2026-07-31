@@ -19,6 +19,20 @@ SHOPIFY_SOURCES = [
         "sale": False,
         "base_url": "https://bbcicecream.eu",
         "url": "https://bbcicecream.eu/collections/newarrivals/products.json?limit=250"
+    },
+    {
+        "brand": "Dickies",
+        "category": "mens",
+        "sale": False,
+        "base_url": "https://dickies.eu/en-gb",
+        "url": "https://dickies.eu/en-gb/collections/men-new-arrivals/products.json?limit=250"
+    },
+    {
+        "brand": "Dickies",
+        "category": "womens",
+        "sale": False,
+        "base_url": "https://dickies.eu/en-gb",
+        "url": "https://dickies.eu/en-gb/collections/women/products.json?limit=250"
     }
 ]
 

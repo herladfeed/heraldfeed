@@ -2,6 +2,8 @@ import subprocess
 import re
 import requests
 from bs4 import BeautifulSoup
+import time
+import random
 
 PRODUCTS_FILE = "products.js"
 
@@ -11,34 +13,42 @@ SHOPIFY_SOURCES = [
         "category": "mens",
         "sale": False,
         "base_url": "https://uk.bape.com",
-        "url": "https://uk.bape.com/collections/new/products.json?limit=250"
+        "url": "https://uk.bape.com/collections/new/products.json?limit=50"
     },
     {
         "brand": "BBC",
         "category": "mens",
         "sale": False,
         "base_url": "https://bbcicecream.eu",
-        "url": "https://bbcicecream.eu/collections/newarrivals/products.json?limit=250"
+        "url": "https://bbcicecream.eu/collections/newarrivals/products.json?limit=50"
     },
     {
         "brand": "Dickies",
         "category": "mens",
         "sale": False,
         "base_url": "https://dickies.eu/en-gb",
-        "url": "https://dickies.eu/en-gb/collections/men-new-arrivals/products.json?limit=250"
+        "url": "https://dickies.eu/en-gb/collections/men-new-arrivals/products.json?limit=50"
     },
     {
         "brand": "Dickies",
         "category": "womens",
         "sale": False,
         "base_url": "https://dickies.eu/en-gb",
-        "url": "https://dickies.eu/en-gb/collections/women/products.json?limit=250"
+        "url": "https://dickies.eu/en-gb/collections/women/products.json?limit=50"
     }
+   
 ]
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
+HEADERS == {
+    "User-Agent": "...",
+    "Accept": "application/json,text/plain,*/*",
+    "Accept-Language": "en-GB,en;q=0.9",
+    "Referer": "https://www.google.com/"
 }
+
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
 
 
 def read_existing_products():
@@ -90,6 +100,45 @@ def shopify_product_to_js(product, source):
     brand: "{source["brand"]}"{sale_line}
   }},'''
 
+def get_with_retries(url, max_retries=4):
+    for attempt in range(max_retries):
+        try:
+            response = SESSION.get(url, timeout=30)
+
+            if response.status_code == 429:
+                retry_after = response.headers.get("Retry-After")
+
+                if retry_after:
+                    try:
+                        wait_time = int(float(retry_after))
+                    except ValueError:
+                        wait_time = 60
+                else:
+                    wait_time = 30 * (attempt + 1)
+
+                wait_time += random.randint(3, 10)
+
+                print(
+                    f"Rate limited. Waiting {wait_time} seconds "
+                    f"before retry {attempt + 1}/{max_retries}..."
+                )
+
+                time.sleep(wait_time)
+                continue
+
+            response.raise_for_status()
+            return response
+
+        except requests.RequestException as error:
+            if attempt == max_retries - 1:
+                raise
+
+            wait_time = 10 * (attempt + 1)
+            print(f"Request failed: {error}")
+            print(f"Waiting {wait_time} seconds before retrying...")
+            time.sleep(wait_time)
+
+    return None
 
 def import_shopify_products(existing_links):
     new_blocks = []
@@ -98,8 +147,11 @@ def import_shopify_products(existing_links):
         print("Checking:", source["brand"])
 
         try:
-            response = requests.get(source["url"], headers=HEADERS, timeout=20)
-            response.raise_for_status()
+            response = get_with_retries(source["url"])
+
+            if response is None:
+                print("No response received.")
+                continue
 
             data = response.json()
             products = data.get("products", [])
@@ -123,6 +175,9 @@ def import_shopify_products(existing_links):
         except Exception as error:
             print("Could not import:", source["brand"])
             print(error)
+
+        # Wait 10–20 seconds before checking the next brand
+        time.sleep(random.randint(10, 20))
 
     return new_blocks
 

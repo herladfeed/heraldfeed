@@ -1,447 +1,531 @@
 const products = [
 
   {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001ZPM802301_BLU_A.jpg?v=1784904761",
+    link: "https://uk.bape.com/products/0zxsww301152r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM801008_BK9_A.jpg?v=1784907766",
+    link: "https://uk.bape.com/products/0zxtem008101r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/002TEM802004_BK0_A.jpg?v=1784907920",
+    link: "https://uk.bape.com/products/0zxtewx00410r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001POM801301_BLK_A.jpg?v=1784906328",
+    link: "https://uk.bape.com/products/0zxpom301121r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM802005_BK9_A.jpg?v=1784908370",
+    link: "https://uk.bape.com/products/0zxtew005102r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM801005_BK0_A.jpg?v=1784909525",
+    link: "https://uk.bape.com/products/0zxtem005101r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM803006_BK9_A.jpg?v=1784908797",
+    link: "https://uk.bape.com/products/0zxtek006103r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001KAM801001_BLU_A.jpg?v=1784905916",
+    link: "https://uk.bape.com/products/0zxkam001931r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/002GDM801002_BLK_A.jpg?v=1784904473",
+    link: "https://uk.bape.com/products/0zxacmx00282r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001PTM801002_BEI_A.jpg?v=1784905237",
+    link: "https://uk.bape.com/products/0zxptm002521r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001FWM301311_GRN_B.jpg?v=1783093294",
+    link: "https://uk.bape.com/products/0zxshm311911q",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+  {
+    image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001LTM801052_BK9_A.jpg?v=1785498354",
+    link: "https://uk.bape.com/products/0zxltm052111r",
+    category: "mens",
+    brand: "BAPE"
+  },
+
+{
     image: "https://www.motelrocks.com/cdn/shop/files/SLCHY-FLRE-JNS-L-HAND-TWIL-FRN-GRN-42803.jpg?crop=center&v=1784706571&width=1024",
     link: "https://www.motelrocks.com/products/slchy-flre-jns-l-hand-twil-frn-grn",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/LOW-RISE-PARALLEL-JEANS-BURGUNDY-W24-43299.jpg?crop=center&v=1784706834&width=1024",
     link: "https://www.motelrocks.com/products/low-rise-parallel-jeans-burgundy",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/NEMUE-PLG-RACERBACK-TOP-GREY-MARL-LOW-RISE-RELAXED-CARGO-INDIGO-W24-04346.jpg?crop=center&v=1784707223&width=1024",
     link: "https://www.motelrocks.com/products/low-rise-relaxed-cargo-indigo",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/EMBERLY-TOP-WHITE-LR-TWISTED-SEAM-JEANS-WASHED-BLACK-GREY-66853.jpg?crop=center&v=1785391491&width=1024",
     link: "https://www.motelrocks.com/products/lr-twstd-seam-jeans-washd-black-grey",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/NEMUE-PLG-RACERBACK-TOP-BLACK-LR-RELAXED-CARGO-JEANS-OFF-WHITE-62206.jpg?crop=center&v=1784707389&width=1024",
     link: "https://www.motelrocks.com/products/lr-relaxed-cargo-jeans-off-white-1",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/NOVEE-CLRD-O-RING-TOP-COFFEE-QRTZ-62849.jpg?crop=center&v=1784707789&width=1024",
     link: "https://www.motelrocks.com/products/novee-clrd-o-ring-top-coffee-qrtz-br08",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/SHERLYN-HALTER-TOP-CUPRO-CREAM-MARTA-TROUSER-STR-TAILORING-TAUPE-65229.jpg?crop=center&v=1784707003&width=1024",
     link: "https://www.motelrocks.com/products/marta-trouser-str-tailoring-taupe-99",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/IONE-QRTR-SLV-TOP-OFF-WHITE-LR-RELAXED-CARGO-JEANS-TRUE-BLUE-62311.jpg?crop=center&v=1784706636&width=1024",
     link: "https://www.motelrocks.com/products/ione-qrtr-slv-top-off-white-wh01",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/IONE-QRTR-SLV-TOP-DARK-PLUM-LR-PARALLEL-STEEL-BLUE-62462.jpg?crop=center&v=1784706471&width=1024",
     link: "https://www.motelrocks.com/products/ione-qrtr-slv-top-dark-plum-pl01",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/DANAMA-ONE-SHOULDER-TOP-AQUA-JENNY-MD-SKIRT-PRTD-MSH-WILD-ANML-BROWN-65180.jpg?crop=center&v=1784775836&width=1024",
     link: "https://www.motelrocks.com/products/jenny-md-skirt-prtd-msh-wild-anml-brown",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/YOANA-TOP-SHEER-KNIT-LILY-GREEN-LR-ROOMY-JEANS-BRIGHT-BLUE-USED-62571.jpg?crop=center&v=1784706008&width=1024",
     link: "https://www.motelrocks.com/products/yoana-top-sheer-knit-lily-green-dj008",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/CUTIE-HALTER-MINI-TOP-HOT-PINK-SLOUCHY-FLARE-JEANS-WASHED-BLACK-GREY-64925.jpg?crop=center&v=1784706040&width=1024",
     link: "https://www.motelrocks.com/products/cutie-halter-mini-top-hot-pink",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/SARTINI-LS-TOP-SHEER-KNIT-MINT-LOW-RISE-DENIM-CARGO-HOT-PANTS-MID-BLEACH-48975.jpg?crop=center&v=1784707258&width=1024",
     link: "https://www.motelrocks.com/products/sartini-ls-top-sheer-knit-mint-dj017",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/BELICA-MINI-DRESS-DEEP-PURPLE-62907.jpg?crop=center&v=1784705729&width=1024",
     link: "https://www.motelrocks.com/products/belica-mini-dress-deep-purple-pu10",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/ORVIO-HALTER-TOP-EMB-ST-TLG-DP-PRPLE--SLOUCHY-FLARE-JEANS-WASHED-BLACK-GREY-65448.jpg?crop=center&v=1784707556&width=1024",
     link: "https://www.motelrocks.com/products/orvio-halter-top-emb-st-tlg-dp-prple-35",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://www.motelrocks.com/cdn/shop/files/ANCO-V-NECK-TOP-PEPPERCORN-61802_082d6a0e-1a64-4e73-9bb3-d9de40bcf092.jpg?crop=center&v=1783911426&width=1024",
     link: "https://www.motelrocks.com/products/anco-v-neck-top-peppercorn-br14",
     category: "womens",
     brand: "Motel Rocks"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037065_89_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/brockman-pant-black-rinsed-582",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037231_826_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-grape-picker-t-shirt-amarone-248",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037117_3V0_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-devitt-rugby-shirt-devitt-stripe-shady-grey-449",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037119_3VI_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-kanan-shirt-kanan-stripe-black-448",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I035317_1C_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-wayne-polo-dark-navy-garment-dyed-694",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037047_00E_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/quentin-jacket-black-black-647",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037225_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-booger-t-shirt-white-267",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037278_1C_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/1989-winners-sweat-dark-navy-heavy-stone-wash-122",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037110_3V2_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-gowan-shirt-gowan-stripe-lapis-466",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037117_3UX_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-devitt-rugby-shirt-devitt-stripe-icesheet-158",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037117_3UW_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-devitt-rugby-shirt-devitt-stripe-dark-scarab-157",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037255_12H_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-arch-script-t-shirt-white-dark-navy-185",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037033_3ZA_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/curtis-sweater-jacket-tangled-shungite-643",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037264_3T6_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-1989-winners-t-shirt-raven-heavy-stone-wash-111",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037110_3V5_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-gowan-shirt-gowan-stripe-black-465",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037229_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-restraint-t-shirt-white-256",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037065_1C_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/brockman-pant-dark-navy-rinsed-584",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037229_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-restraint-t-shirt-black-254",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037033_3Z8_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/curtis-sweater-jacket-tangled-black-642",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037230_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-hot-rat-t-shirt-black-251",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I035317_3U0_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-wayne-polo-dark-scarab-garment-dyed-692",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037248_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-old-painter-t-shirt-white-203",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037225_3J1_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-booger-t-shirt-cozy-purple-266",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037033_3Z9_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/curtis-sweater-jacket-tangled-shady-purple-641",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037532_453_4Q-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/oakland-shirt-jac-blue-dark-navy-worn-used-wash-43",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037266_11T_06-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/arch-script-sweat-ash-heather-dark-navy-stone-washed-147",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037015_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-work-pocket-t-shirt-black-678",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037232_02_4G-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-slingshot-t-shirt-white-heavy-enzyme-wash-306",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037264_1C_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-1989-winners-t-shirt-dark-navy-heavy-stone-wash-113",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037249_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-dreamrift-t-shirt-white-201",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037145_3UE_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-bronson-t-shirt-bronson-stripe-cypress-406",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037239_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-fromage-t-shirt-white-230",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037015_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-work-pocket-t-shirt-white-679",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037232_89_4G-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-slingshot-t-shirt-black-heavy-enzyme-wash-305",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037145_3UI_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-bronson-t-shirt-bronson-stripe-black-144",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037533_01_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/oakland-pant-blue-rinsed-42",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037047_3WM_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/quentin-jacket-raven-black-90",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037262_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-dirty-laundry-t-shirt-black-158",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037231_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-grape-picker-t-shirt-black-247",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037015_3T6_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-work-pocket-t-shirt-raven-680",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037119_3VF_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/l-s-kanan-shirt-kanan-stripe-bleach-156",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037231_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-grape-picker-t-shirt-white-250",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I037116_00E_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-small-heart-t-shirt-black-black-450",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I022947_89_0R-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/simple-pant-black-tobacco-used-wash-24",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I033585_3T6_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/floyde-pant-raven-garment-dyed-1288",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I030468_01_7X-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/landon-pant-blue-marble-used-wash-705",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I036728_01_06-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/aaron-pant-blue-stone-washed-448",
     category: "mens",
     brand: "Carhartt"
   },
 
-  {
+{
     image: "https://cdn.media.amplience.net/i/carhartt_wip/I035317_33H_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
     link: "https://www.carhartt-wip.com/en-gb/p/s-s-wayne-polo-palisander-garment-dyed-1100",
     category: "mens",

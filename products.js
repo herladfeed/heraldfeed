@@ -1,83 +1,195 @@
 const products = [
 
   {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/gift-card",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/eu-football-jersey-blue",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/running-dog-football-shirt-blue",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/running-dog-panelled-track-top-white",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/running-dog-patch-track-pants-navy",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/running-dog-football-shirt-red",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "data:image/gif;base64",
+    link: "https://bbcicecream.eu/products/billionaire-boys-club-storage-crate-navy",
+    category: "mens",
+    brand: "BBC"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88ED0FE-1_c0f28241-b467-4bd4-9aaf-13d163d2139a.jpg?v=1779221470&width=480",
+    link: "https://dickies.eu/en-gb/products/954-relaxed-straight-work-jeans-dk0a882a0dd1-navy",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88ED0FE-1_c0f28241-b467-4bd4-9aaf-13d163d2139a.jpg?v=1779221470&width=480",
+    link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88ed0fe1-blue",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88EDL23-1_2116d012-e805-4cfb-a4d6-c08e55aff078.jpg?v=1779221464&width=480",
+    link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl231-blue",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88EDL44-1_1979980f-499e-4f27-a354-b02fb444014b.jpg?v=1779221444&width=480",
+    link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl441-green",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88EDRIN-1_22b8c29f-e0ae-4750-b327-b7740bd8bf14.jpg?v=1779221492&width=480",
+    link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edrin1-blue",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A88EDL24-1_a0c570f6-5d40-4365-bfe5-09c26784bb5e.jpg?v=1780412488&width=480",
+    link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl241-black",
+    category: "mens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZBLK-1_591ee06b-2f16-4b7a-8d78-6c94a0407285.jpg?v=1779221359&width=480",
+    link: "https://dickies.eu/en-gb/products/deshler-zip-pullover-hoodie-dk0a88btc481-grey",
+    category: "womens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZBLK-1_591ee06b-2f16-4b7a-8d78-6c94a0407285.jpg?v=1779221359&width=480",
+    link: "https://dickies.eu/en-gb/products/oakport-zip-hoodie-dk0a4y1zblk1-black",
+    category: "womens",
+    brand: "Dickies"
+  },
+
+  {
+    image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZHG01-1_462af4a6-dec7-48c6-8c47-f42d4b794eab.jpg?v=1782142059&width=480",
+    link: "https://dickies.eu/en-gb/products/oakport-zip-hoodie-dk0a4y1zhg01-grey",
+    category: "womens",
+    brand: "Dickies"
+  },
+
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001ZPM802301_BLU_A.jpg?v=1784904761",
     link: "https://uk.bape.com/products/0zxsww301152r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM801008_BK9_A.jpg?v=1784907766",
     link: "https://uk.bape.com/products/0zxtem008101r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/002TEM802004_BK0_A.jpg?v=1784907920",
     link: "https://uk.bape.com/products/0zxtewx00410r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001POM801301_BLK_A.jpg?v=1784906328",
     link: "https://uk.bape.com/products/0zxpom301121r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM802005_BK9_A.jpg?v=1784908370",
     link: "https://uk.bape.com/products/0zxtew005102r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM801005_BK0_A.jpg?v=1784909525",
     link: "https://uk.bape.com/products/0zxtem005101r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001TEM803006_BK9_A.jpg?v=1784908797",
     link: "https://uk.bape.com/products/0zxtek006103r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001KAM801001_BLU_A.jpg?v=1784905916",
     link: "https://uk.bape.com/products/0zxkam001931r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/002GDM801002_BLK_A.jpg?v=1784904473",
     link: "https://uk.bape.com/products/0zxacmx00282r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001PTM801002_BEI_A.jpg?v=1784905237",
     link: "https://uk.bape.com/products/0zxptm002521r",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001FWM301311_GRN_B.jpg?v=1783093294",
     link: "https://uk.bape.com/products/0zxshm311911q",
     category: "mens",
     brand: "BAPE"
   },
 
-  {
+{
     image: "https://cdn.shopify.com/s/files/1/0604/3638/1905/files/001LTM801052_BK9_A.jpg?v=1785498354",
     link: "https://uk.bape.com/products/0zxltm052111r",
     category: "mens",

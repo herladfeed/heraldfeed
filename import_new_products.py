@@ -1,11 +1,14 @@
 import subprocess
 import re
-import requests
-from bs4 import BeautifulSoup
 import time
 import random
+import requests
+
+from bs4 import BeautifulSoup
+
 
 PRODUCTS_FILE = "products.js"
+WEBSITE_FOLDER = r"C:\Website"
 
 SHOPIFY_SOURCES = [
     {
@@ -13,42 +16,23 @@ SHOPIFY_SOURCES = [
         "category": "mens",
         "sale": False,
         "base_url": "https://uk.bape.com",
-        "url": "https://uk.bape.com/collections/new/products.json?limit=50"
-    },
-    {
-        "brand": "BBC",
-        "category": "mens",
-        "sale": False,
-        "base_url": "https://bbcicecream.eu",
-        "url": "https://bbcicecream.eu/collections/newarrivals/products.json?limit=50"
-    },
-    {
-        "brand": "Dickies",
-        "category": "mens",
-        "sale": False,
-        "base_url": "https://dickies.eu/en-gb",
-        "url": "https://dickies.eu/en-gb/collections/men-new-arrivals/products.json?limit=50"
-    },
-    {
-        "brand": "Dickies",
-        "category": "womens",
-        "sale": False,
-        "base_url": "https://dickies.eu/en-gb",
-        "url": "https://dickies.eu/en-gb/collections/women/products.json?limit=50"
+        "url": "https://uk.bape.com/collections/new/products.json?limit=50",
     }
-   
 ]
 
-HEADERS == {
-    "User-Agent": "...",
-    "Accept": "application/json,text/plain,*/*",
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/150.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/json,text/plain,*/*",
     "Accept-Language": "en-GB,en;q=0.9",
-    "Referer": "https://www.google.com/"
+    "Cache-Control": "no-cache",
 }
 
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
-
 
 
 def read_existing_products():
@@ -68,16 +52,31 @@ def clean_image_url(image_url, base_url):
     if not image_url:
         return None
 
+    image_url = image_url.strip()
+
     if "," in image_url:
-        image_url = image_url.split(",")[0].strip().split(" ")[0]
+        image_url = image_url.split(",")[0].strip()
+
+    if " " in image_url:
+        image_url = image_url.split(" ")[0].strip()
 
     if image_url.startswith("//"):
         image_url = "https:" + image_url
-
-    if image_url.startswith("/"):
-        image_url = base_url + image_url
+    elif image_url.startswith("/"):
+        image_url = base_url.rstrip("/") + image_url
 
     return image_url
+
+
+def make_product_block(image_url, product_url, category, brand, sale=False):
+    sale_line = ",\n    sale: true" if sale else ""
+
+    return f'''  {{
+    image: "{image_url}",
+    link: "{product_url}",
+    category: "{category}",
+    brand: "{brand}"{sale_line}
+  }},'''
 
 
 def shopify_product_to_js(product, source):
@@ -89,16 +88,21 @@ def shopify_product_to_js(product, source):
 
     image = images[0]
     image_url = image.get("src") if isinstance(image, dict) else image
-    product_url = f'{source["base_url"]}/products/{handle}'
+    image_url = clean_image_url(image_url, source["base_url"])
 
-    sale_line = ",\n    sale: true" if source["sale"] else ""
+    if not image_url:
+        return None
 
-    return f'''  {{
-    image: "{image_url}",
-    link: "{product_url}",
-    category: "{source["category"]}",
-    brand: "{source["brand"]}"{sale_line}
-  }},'''
+    product_url = f'{source["base_url"].rstrip("/")}/products/{handle}'
+
+    return make_product_block(
+        image_url=image_url,
+        product_url=product_url,
+        category=source["category"],
+        brand=source["brand"],
+        sale=source["sale"],
+    )
+
 
 def get_with_retries(url, max_retries=4):
     for attempt in range(max_retries):
@@ -122,7 +126,6 @@ def get_with_retries(url, max_retries=4):
                     f"Rate limited. Waiting {wait_time} seconds "
                     f"before retry {attempt + 1}/{max_retries}..."
                 )
-
                 time.sleep(wait_time)
                 continue
 
@@ -131,7 +134,8 @@ def get_with_retries(url, max_retries=4):
 
         except requests.RequestException as error:
             if attempt == max_retries - 1:
-                raise
+                print(f"Request failed permanently: {error}")
+                return None
 
             wait_time = 10 * (attempt + 1)
             print(f"Request failed: {error}")
@@ -139,6 +143,26 @@ def get_with_retries(url, max_retries=4):
             time.sleep(wait_time)
 
     return None
+
+
+def find_image_for_product_link(link_tag):
+    image_tag = link_tag.find("img")
+
+    if image_tag is None:
+        image_tag = link_tag.find_next("img")
+
+    if image_tag is None:
+        return None
+
+    return (
+        image_tag.get("src")
+        or image_tag.get("data-src")
+        or image_tag.get("data-original")
+        or image_tag.get("data-lazy-src")
+        or image_tag.get("data-srcset")
+        or image_tag.get("srcset")
+    )
+
 
 def import_shopify_products(existing_links):
     new_blocks = []
@@ -160,7 +184,13 @@ def import_shopify_products(existing_links):
 
             for product in products:
                 handle = product.get("handle")
-                product_url = f'{source["base_url"]}/products/{handle}'
+
+                if not handle:
+                    continue
+
+                product_url = (
+                    f'{source["base_url"].rstrip("/")}/products/{handle}'
+                )
 
                 if product_url in existing_links:
                     continue
@@ -172,69 +202,242 @@ def import_shopify_products(existing_links):
                     existing_links.add(product_url)
                     print("Added:", product_url)
 
-        except Exception as error:
+        except (ValueError, requests.RequestException) as error:
             print("Could not import:", source["brand"])
             print(error)
+        except Exception as error:
+            print("Unexpected error importing:", source["brand"])
+            print(error)
 
-        # Wait 10–20 seconds before checking the next brand
         time.sleep(random.randint(10, 20))
 
     return new_blocks
 
+
+def import_bbc(existing_links):
+    print("Checking: BBC")
+
+    new_blocks = []
+    collection_url = "https://bbcicecream.eu/collections/newarrivals"
+    base_url = "https://bbcicecream.eu"
+
+    try:
+        response = get_with_retries(collection_url)
+
+        if response is None:
+            print("No response received for BBC.")
+            return new_blocks
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        for link_tag in soup.find_all("a", href=True):
+            href = link_tag.get("href", "")
+
+            if "/products/" not in href:
+                continue
+
+            product_url = (
+                href if href.startswith("http")
+                else base_url + href
+            )
+            product_url = product_url.split("?")[0]
+
+            if product_url in existing_links:
+                continue
+
+            image_url = find_image_for_product_link(link_tag)
+            image_url = clean_image_url(image_url, base_url)
+
+            if not image_url:
+                continue
+
+            block = make_product_block(
+                image_url=image_url,
+                product_url=product_url,
+                category="mens",
+                brand="BBC",
+            )
+
+            new_blocks.append(block)
+            existing_links.add(product_url)
+            print("Added:", product_url)
+
+    except Exception as error:
+        print("Could not import: BBC")
+        print(error)
+
+    return new_blocks
+
+
+def import_dickies(existing_links):
+    print("Checking: Dickies")
+
+    new_blocks = []
+    base_url = "https://dickies.eu"
+
+    sources = [
+        {
+            "url": "https://dickies.eu/en-gb/collections/men-new-arrivals",
+            "category": "mens",
+        },
+        {
+            "url": "https://dickies.eu/en-gb/collections/women-new-arrivals",
+            "category": "womens",
+        },
+    ]
+
+    for source in sources:
+        category = source["category"]
+        print(f"Checking Dickies {category} products")
+
+        try:
+            response = get_with_retries(source["url"])
+
+            if response is None:
+                print(f"No response received for Dickies {category}.")
+                continue
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            for link_tag in soup.find_all("a", href=True):
+                href = link_tag.get("href", "")
+
+                if "/products/" not in href:
+                    continue
+
+                product_url = (
+                    href if href.startswith("http")
+                    else base_url + href
+                )
+                product_url = product_url.split("?")[0]
+
+                if product_url in existing_links:
+                    continue
+
+                image_url = find_image_for_product_link(link_tag)
+                image_url = clean_image_url(image_url, base_url)
+
+                if not image_url:
+                    continue
+
+                block = make_product_block(
+                    image_url=image_url,
+                    product_url=product_url,
+                    category=category,
+                    brand="Dickies",
+                )
+
+                new_blocks.append(block)
+                existing_links.add(product_url)
+                print("Added:", product_url)
+
+        except Exception as error:
+            print(f"Could not import Dickies {category}")
+            print(error)
+
+        time.sleep(random.randint(10, 20))
+
+    return new_blocks
+
+
+
+def import_stussy(existing_links):
+    print("Checking: Stüssy")
+
+    new_blocks = []
+    collection_url = "https://uk.stussy.com/collections/new-arrivals"
+    base_url = "https://uk.stussy.com"
+
+    try:
+        response = get_with_retries(collection_url)
+
+        if response is None:
+            print("No response received for Stüssy.")
+            return new_blocks
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        for link_tag in soup.find_all("a", href=True):
+            href = link_tag.get("href", "")
+
+            if "/products/" not in href:
+                continue
+
+            product_url = (
+                href if href.startswith("http")
+                else base_url + href
+            )
+            product_url = product_url.split("?")[0]
+
+            if product_url in existing_links:
+                continue
+
+            image_url = find_image_for_product_link(link_tag)
+            image_url = clean_image_url(image_url, base_url)
+
+            if not image_url:
+                continue
+
+            block = make_product_block(
+                image_url=image_url,
+                product_url=product_url,
+                category="mens",
+                brand="Stüssy",
+            )
+
+            new_blocks.append(block)
+            existing_links.add(product_url)
+            print("Added:", product_url)
+
+    except Exception as error:
+        print("Could not import: Stüssy")
+        print(error)
+
+    return new_blocks
 
 def import_motel_rocks(existing_links):
     print("Checking: Motel Rocks")
 
     new_blocks = []
     url = "https://www.motelrocks.com/collections/new-in"
+    base_url = "https://www.motelrocks.com"
 
     try:
-        response = requests.get(url, headers=HEADERS, timeout=20)
+        response = SESSION.get(url, timeout=30)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
-        links = soup.find_all("a", href=True)
 
-        for link_tag in links:
-            href = link_tag["href"]
+        for link_tag in soup.find_all("a", href=True):
+            href = link_tag.get("href", "")
 
             if "/products/" not in href:
                 continue
 
-            product_url = href if href.startswith("http") else "https://www.motelrocks.com" + href
+            product_url = (
+                href if href.startswith("http")
+                else base_url + href
+            )
             product_url = product_url.split("?")[0]
 
             if product_url in existing_links:
                 continue
 
-            image_tag = link_tag.find("img") or link_tag.find_next("img")
-
-            if not image_tag:
-                continue
-
-            image_url = (
-                image_tag.get("src")
-                or image_tag.get("data-src")
-                or image_tag.get("data-original")
-                or image_tag.get("data-srcset")
-                or image_tag.get("srcset")
-            )
-
-            image_url = clean_image_url(image_url, "https://www.motelrocks.com")
+            image_url = find_image_for_product_link(link_tag)
+            image_url = clean_image_url(image_url, base_url)
 
             if not image_url:
                 continue
 
-            block = f'''  {{
-    image: "{image_url}",
-    link: "{product_url}",
-    category: "womens",
-    brand: "Motel Rocks"
-  }},'''
+            block = make_product_block(
+                image_url=image_url,
+                product_url=product_url,
+                category="womens",
+                brand="Motel Rocks",
+            )
 
             new_blocks.append(block)
             existing_links.add(product_url)
-
             print("Added:", product_url)
 
     except Exception as error:
@@ -249,54 +452,44 @@ def import_carhartt(existing_links):
 
     new_blocks = []
     url = "https://www.carhartt-wip.com/en-gb/c/men-new"
+    base_url = "https://www.carhartt-wip.com"
 
     try:
-        response = requests.get(url, headers=HEADERS, timeout=20)
+        response = SESSION.get(url, timeout=30)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
-        product_links = soup.find_all("a", href=True)
 
-        for link_tag in product_links:
-            href = link_tag["href"]
+        for link_tag in soup.find_all("a", href=True):
+            href = link_tag.get("href", "")
 
             if "/en-gb/p/" not in href:
                 continue
 
-            product_url = href if href.startswith("http") else "https://www.carhartt-wip.com" + href
+            product_url = (
+                href if href.startswith("http")
+                else base_url + href
+            )
             product_url = product_url.split("?")[0]
 
             if product_url in existing_links:
                 continue
 
-            image_tag = link_tag.find("img") or link_tag.find_next("img")
-
-            if not image_tag:
-                continue
-
-            image_url = (
-                image_tag.get("src")
-                or image_tag.get("data-src")
-                or image_tag.get("data-original")
-                or image_tag.get("data-srcset")
-                or image_tag.get("srcset")
-            )
-
-            image_url = clean_image_url(image_url, "https://www.carhartt-wip.com")
+            image_url = find_image_for_product_link(link_tag)
+            image_url = clean_image_url(image_url, base_url)
 
             if not image_url:
                 continue
 
-            block = f'''  {{
-    image: "{image_url}",
-    link: "{product_url}",
-    category: "mens",
-    brand: "Carhartt"
-  }},'''
+            block = make_product_block(
+                image_url=image_url,
+                product_url=product_url,
+                category="mens",
+                brand="Carhartt",
+            )
 
             new_blocks.append(block)
             existing_links.add(product_url)
-
             print("Added:", product_url)
 
     except Exception as error:
@@ -309,37 +502,53 @@ def import_carhartt(existing_links):
 def push_to_github():
     print("Pushing updates to GitHub...")
 
-    subprocess.run(["git", "add", "."], cwd="C:\\Website", check=True)
-    subprocess.run(["git", "commit", "-m", "Daily product update"], cwd="C:\\Website", check=True)
-    subprocess.run(["git", "push"], cwd="C:\\Website", check=True)
+    subprocess.run(
+        ["git", "add", "products.js"],
+        cwd=WEBSITE_FOLDER,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "Daily product update"],
+        cwd=WEBSITE_FOLDER,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "push"],
+        cwd=WEBSITE_FOLDER,
+        check=True,
+    )
 
     print("GitHub updated. Netlify should redeploy automatically.")
 
 
 def import_products():
     existing_blocks, existing_links = read_existing_products()
-
     new_blocks = []
 
     new_blocks += import_shopify_products(existing_links)
+    new_blocks += import_bbc(existing_links)
+    new_blocks += import_dickies(existing_links)
+    new_blocks += import_stussy(existing_links)
     new_blocks += import_motel_rocks(existing_links)
     new_blocks += import_carhartt(existing_links)
+
+    if not new_blocks:
+        print("Done. Added 0 new products.")
+        print("No new products found, so nothing was pushed to GitHub.")
+        return
 
     all_blocks = new_blocks + existing_blocks
 
     new_content = "const products = [\n\n"
     new_content += "\n\n".join(all_blocks)
-    new_content += "\n\n];"
+    new_content += "\n\n];\n"
 
     with open(PRODUCTS_FILE, "w", encoding="utf-8") as file:
         file.write(new_content)
 
     print(f"Done. Added {len(new_blocks)} new products.")
-
-    if len(new_blocks) > 0:
-        push_to_github()
-    else:
-        print("No new products found, so nothing was pushed to GitHub.")
+    push_to_github()
 
 
-import_products()
+if __name__ == "__main__":
+    import_products()

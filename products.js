@@ -1,111 +1,1035 @@
 const products = [
 
   {
+    image: "https://uk.stussy.com/cdn/shop/files/115948_SUED_1.jpg?v=1785170541&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115948-garage-jacket-suede-suede",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1140407_SPBL_1.jpg?v=1785176808&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1140407-lazy-floral-tee-sport-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1140407_VINB_1.jpg?v=1785176840&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1140407-lazy-floral-tee-vintage-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1140407_WHIT_1.jpg?v=1785176855&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1140407-lazy-floral-tee-white",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116761_LWAI_1.jpg?v=1785170916&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116761-big-ol-jean-denim-light-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116759_LWAI_1.jpg?v=1785170868&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116759-new-classic-jean-denim-light-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/113179_GREY_1.jpg?v=1785170479&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/113179-peak-board-short-grey",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/113179_BLAC_1.jpg?v=1785170432&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/113179-peak-board-short-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/113179_BLUE_1.jpg?v=1785170447&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/113179-peak-board-short-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1311247_CAMO_1.jpg?v=1785177108&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1311247-9forty-sport-trucker-camo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1311247_BLAC_1.jpg?v=1785177093&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1311247-9forty-sport-trucker-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1311247_SKYB_1.jpg?v=1785177139&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1311247-9forty-sport-trucker-sky-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/139070_BLAC_1.jpg?v=1778772499&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/139070-beach-slipper-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1110401_LEOP_1.jpg?v=1785176794&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1110401-animal-print-flannel-shirt-leopard",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/117316_REDD_1.jpg?v=1785176899&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/117316-lightweight-stripe-sweater-red",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/117316_BLAC_1.jpg?v=1785176869&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/117316-lightweight-stripe-sweater-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/112345_NAVY_1.jpg?v=1785170390&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/112345-sport-short-navy",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/112345_PINE_1.jpg?v=1785170420&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/112345-sport-short-pine",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1311107_DRYL_1.jpg?v=1785177499&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1311107-9twenty-basic-cap-dark-royal",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1311107_DECA_1.jpg?v=1785176915&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1311107-9twenty-basic-cap-desert-camo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/338449_MRBB_1.jpg?v=1781635714&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/338449-adrian-sunglasses-matte-rubber-black-black-lens",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/113180_BLAC_1.jpg?v=1785170493&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/113180-cove-board-short-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/113180_YELO_1.jpg?v=1785170508&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/113180-cove-board-short-yellow",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1321290_OLIV_1.jpg?v=1785177346&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1321290-stock-bucket-hat-olive",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1321290_BLAC_1.jpg?v=1785177319&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1321290-stock-bucket-hat-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1321290_DECA_1.jpg?v=1785177333&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1321290-stock-bucket-hat-desert-camo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/338380_HTBL_1.jpg?v=1774298057&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/338380-landon-sunglasses-havana-tortoise-brown-lens",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_BLAC_1.jpg?v=1785170555&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_BLUE_1.jpg?v=1785170570&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_KIWI_1.jpg?v=1785170614&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-kiwi",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1995000_CHOC_2.jpg?v=1785182852&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1995000-basic-stussy-ls-tee-chocolate",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1995000_ASHH_2.jpg?v=1785182808&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1995000-basic-stussy-ls-tee-ash-heather",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1995000_BLE2_2.jpg?v=1785182838&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1995000-basic-stussy-ls-tee-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115981_LWAI_1.jpg?v=1785170735&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115981-denim-trucker-jacket-light-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116763_LWAI_1.jpg?v=1785170960&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116763-slim-jean-denim-light-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/138971_SILV_1.jpg?v=1760523439&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/138971-lighter-holster-keychain-silver",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/338446_MBBL_1.jpg?v=1781635639&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/338446-wilkins-sunglasses-matte-black-black-lens",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1321262_TRUB_1.jpg?v=1785177273&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1321262-basic-stussy-cuff-beanie-true-blue",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1321262_DOLV_1.jpg?v=1785177229&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1321262-basic-stussy-cuff-beanie-dark-olive",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115987_BLAC_1.jpg?v=1785170749&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115987-lightweight-field-parka-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115987_STON_1.jpg?v=1785170780&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115987-lightweight-field-parka-stone",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1110388_PUST_1.jpg?v=1785176539&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1110388-standard-shirt-purple-stripe",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1110388_NSTR_1.jpg?v=1785176509&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1110388-standard-shirt-natural-stripe",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116761_DWAI_1.jpg?v=1785170901&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116761-big-ol-jean-denim-dark-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116759_DWAI_1.jpg?v=1785170854&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116759-new-classic-jean-denim-dark-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116763_DWAI_1.jpg?v=1785170929&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116763-slim-jean-denim-dark-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115981_DWAI_1.jpg?v=1785170721&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115981-denim-trucker-jacket-dark-wash-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/118540_WABL_1.jpg?v=1785177560&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/118540-stussy-sport-zip-hoodie-washed-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/118540_TANN_1.jpg?v=1785177528&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/118540-stussy-sport-zip-hoodie-tan",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/338452_BDAG_1_b6720d91-7315-4e31-a4a0-c20d43555992.jpg?v=1782919084&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/338452-roman-sunglasses-black-dark-green-lens",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_BROW_1.jpg?v=1785170600&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-brown",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_OLIV_1.jpg?v=1785170628&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-olive",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115951_STON_1.jpg?v=1785170660&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115951-waxed-cotton-beach-shell-stone",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/118589_GHEA_1.jpg?v=1784237240&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/118589-varsity-zip-hoodie-grey-heather",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116811_GHEA_1.jpg?v=1784225988&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116811-varsity-fleece-pant-grey-heather",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/115980_RIIN_1.jpg?v=1785170688&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/115980-denim-trucker-jacket-rinsed-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116752_RIIN_1.jpg?v=1785170300&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116752-slim-jean-denim-rinsed-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116599T_RIIN_1_3cca74b9-f8ff-42d5-b8df-811758cc208d.jpg?v=1785445116&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116599t-big-ol-jean-denim-rinsed-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/116672_RIIN_1_176ec782-d9d5-48f2-9345-cb5e739da639.jpg?v=1785445100&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/116672-new-classic-jean-denim-rinsed-indigo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1905000_OLI2_2.jpg?v=1785182794&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1905000-basic-stussy-tee-olive-2",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/1905000_CLAY_2.jpg?v=1785182780&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1905000-basic-stussy-tee-clay",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/138973_KANG_1_326c84a9-6040-4251-9c07-b884967a6c68.jpg?v=1760523446&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/138973-athletic-crew-sock-kangaroo",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/138973_WHIT_1_096cc3ad-339e-4c20-a533-37a920c651b2.jpg?v=1760523449&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/138973-athletic-crew-sock-white",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/138973_BLAC_1_9fefd305-cd72-4001-97e1-8552c893e281.jpg?v=1760523443&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/138973-athletic-crew-sock-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/134252_BLAC_1_534ce2fb-0750-4eeb-93da-f42a12a3c63b.jpg?v=1764290467&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/134252-canvas-backpack-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/118553_WABL_1_99f5a83a-491c-44a0-8e80-00fd93faacf0.jpg?v=1784226079&width=480",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/118553-faded-graphic-zip-hoodie-washed-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/sync-33681416716485.jpg?v=1785458973&width=1024",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1140394-hooded-rash-guard-black",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://uk.stussy.com/cdn/shop/files/sync-33681422778565.jpg?v=1785458974&width=1024",
+    link: "https://uk.stussy.com/collections/new-arrivals/products/1905000-basic-stussy-tee-white",
+    category: "mens",
+    brand: "Stüssy"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/KAIZO-TOP-SHEER-KNIT-COOL-BLUE-ESMERAY-MIDI-SKIRT-STRIPE-JRY-GRY-WHT.jpg?crop=center&v=1785728414&width=1024",
+    link: "https://www.motelrocks.com/products/kaizo-top-sheer-knit-cool-blue-dj006",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/ABILA-MIDI-SKIRT-SUEDE-TAN-4806_02cec728-d321-4fde-a7c9-1a599bcaa251.jpg?crop=center&v=1785733989&width=1024",
+    link: "https://www.motelrocks.com/products/abila-midi-skirt-suede-tan-50",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/ABILA-SKIRT-FAUX-SUEDE-TAN-ELANUR-TOP-ECRU-4813.jpg?crop=center&v=1785480547&width=1024",
+    link: "https://www.motelrocks.com/products/elanur-top-shr-knit-ecru-dj165",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/WISTE-DRESS-BT-CH-CH04-COM-DTY-MVE-3761_08e4f179-c5c4-48a6-a731-3ea343f4ccf5.jpg?crop=center&v=1785728889&width=1024",
+    link: "https://www.motelrocks.com/products/wiste-dress-bt-ch-ch04-com-dty-mve-pk11",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/JOSIE-TOP-WHITE-SEVEN-STRIPE-ABILA-MIDI-SKIRT-SUEDE-TAN.jpg?crop=center&v=1785485402&width=1024",
+    link: "https://www.motelrocks.com/products/josie-top-white-wh01-seven-stripe",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/donata-trouser-in-ocean-storm-0514.jpg?crop=center&v=1785730904&width=1024",
+    link: "https://www.motelrocks.com/products/donata-trouser-belt-ocean-storm-45",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/NILZA-WRAP-TOP-KNIT-OFF-WHITE-TOVA-TIE-TAILORING-TROUSER-BLACK.jpg?crop=center&v=1785730555&width=1024",
+    link: "https://www.motelrocks.com/products/nilza-wrap-top-knit-off-white-dj031",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/TOSHI-TOP-R-JRY-BLACK-3807.jpg?crop=center&v=1785741248&width=1024",
+    link: "https://www.motelrocks.com/products/toshi-top-r-jry-black-bk01",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/SIENNA-TOP-MESH-SERENE-IVY-DARK-PLUM-ABILA-MIDI-SKIRT-SUEDE-TAN-04392.jpg?crop=center&v=1785482798&width=1024",
+    link: "https://www.motelrocks.com/products/sienna-top-mesh-serene-ivy-dark-plum",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/IONE-QRTR-SLV-TOP-RAR-LEOPRD-BROWN-EUNIA-SHORT-BLACK-04407.jpg?crop=center&v=1785485727&width=1024",
+    link: "https://www.motelrocks.com/products/ione-qrtr-slv-top-rar-leoprd-brown-br22",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/SADIYA-TOP-SILVER-LEGONG-LEGGING-BLACK-5798.jpg?crop=center&v=1785484543&width=1024",
+    link: "https://www.motelrocks.com/products/sadiya-halter-top-sequin-silver",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/DANTE-BOXY-JACKET-FAUX-SUEDE-TAN-EFFY-TIE-SIDE-CUPRO-CAPRI-GREY-MARL.jpg?crop=center&v=1785730447&width=1024",
+    link: "https://www.motelrocks.com/products/dante-boxy-jacket-suede-tan-22",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/CLIO-T-SHIRT-BOOKED-AND-BUSY-LILAC-BLUE-0486-3.jpg?crop=center&v=1785484153&width=1024",
+    link: "https://www.motelrocks.com/products/clio-bggy-tee-lilac-bl-pu16-bkd-and-bsy",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/SUZU-MIDI-SKIRT-SUEDE-DARK-BROWN-5132.jpg?crop=center&v=1785728131&width=1024",
+    link: "https://www.motelrocks.com/products/suzu-midi-skirt-suede-dark-brown-90",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/JIAN-TOP-BCKL-WST-SHR-KNIT-MINT-5086.jpg?crop=center&v=1785741523&width=1024",
+    link: "https://www.motelrocks.com/products/jian-top-bckl-wst-shr-knit-mint-dj017",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://www.motelrocks.com/cdn/shop/files/YONES-TOP-BTR-CHC-CH04-COM-DST-MVE-6525.jpg?crop=center&v=1785727713&width=1024",
+    link: "https://www.motelrocks.com/products/yones-top-btr-chc-ch04-com-dst-mve-pk11",
+    category: "womens",
+    brand: "Motel Rocks"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037280_3BI_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-chez-wip-sweat-jacket-palisander-grey-108",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037278_3T6_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/1989-winners-sweat-raven-heavy-stone-wash-121",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037034_1C_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/caster-knit-sweater-dark-navy-640",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I029522_3TG_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/vista-sweatshirt-wip-h-brown-garment-dyed-1446",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037248_33E_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-old-painter-t-shirt-citadel-204",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037253_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-boogie-night-t-shirt-white-191",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037262_02_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-dirty-laundry-t-shirt-white-159",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I029524_3U0_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-vista-jacket-dark-scarab-garment-dyed-976",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037195_89_4O-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-single-knee-short-long-black-stone-canvas-327",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I034796_3TF_4O-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/double-knee-pant-wip-dusty-h-stone-canvas-1228",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035398_V6_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/detroit-half-zip-sweater-grey-heather-1153",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I036594_01_4Q-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/bib-overall-blue-worn-used-wash-430",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037044_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/stanwood-parka-black-190",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I029523_3TG_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-vista-sweatshirt-wip-h-brown-garment-dyed-981",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035698_3WM_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/prentis-vest-liner-raven-black-1114",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035696_3WQ_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/prentis-liner-wip-dusty-h-tobacco-1117",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I034796_3X5_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/double-knee-pant-camo-feather-tree-black-heavy-stone-wash-203",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037045_63_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/stanwood-jacket-cypress-189",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037044_63_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/stanwood-parka-cypress-622",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037104_3T6_FQ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/lambert-sweat-raven-moon-wash-487",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037271_3VQ_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/l-s-cardona-pocket-t-shirt-cardona-stripe-natural-palisander-garment-dyed-133",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035394_3ZC_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/curtis-sweater-tangled-shady-blue-136",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I034809_3T6_4J-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/brandon-pant-raven-stone-dyed-1220",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037115_33H_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-og-loose-pocket-t-shirt-palisander-456",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I034798_3X5_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/single-knee-pant-camo-feather-tree-black-heavy-stone-wash-721",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037078_89_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/fletcher-pant-black-rinsed-551",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037255_3ZG_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-arch-script-t-shirt-black-wip-h-brown-183",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037535_00E_06-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-detroit-jacket-black-black-stone-washed-35",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037112_0D2_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-magazine-script-t-shirt-black-white-459",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035612_3X5_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-active-jacket-camo-feather-tree-black-heavy-stone-wash-494",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I029523_47_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/hooded-vista-sweatshirt-tobacco-garment-dyed-980",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I033756_3TE_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/landon-pant-shungite-rinsed-1264",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I033828_3Z6_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-signature-script-t-shirt-dark-navy-wip-dusty-h-1259",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035388_26_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/firth-sweater-soot-689",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037272_3VR_GD-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-cardona-pocket-t-shirt-cardona-stripe-natural-dark-navy-garment-dyed-130",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037016_1C_FQ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-lambert-t-shirt-dark-navy-moon-wash-676",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037581_89_06-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-active-jacket-black-stone-washed-4",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035388_3TE_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/firth-sweater-shungite-687",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037104_47_FQ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/lambert-sweat-tobacco-moon-wash-485",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037016_89_FQ-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-lambert-t-shirt-black-moon-wash-673",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037260_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-chez-wip-t-shirt-black-164",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037535_00E_0R-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-detroit-jacket-black-black-marble-dark-worn-34",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I027217_3T6_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/simple-pant-raven-rinsed-1486",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I027217_3TG_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/simple-pant-wip-h-brown-rinsed-1487",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037078_3X5_02-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/fletcher-pant-camo-feather-tree-black-rinsed-552",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037115_89_XX-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/s-s-og-loose-pocket-t-shirt-black-452",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I037534_01_7X-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/payson-pant-blue-marble-used-wash-37",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+  {
+    image: "https://cdn.media.amplience.net/i/carhartt_wip/I035614_3X8_60-ST-01?%24ST%24=&w=3840&fmt=auto&qlt=default",
+    link: "https://www.carhartt-wip.com/en-gb/p/og-detroit-jacket-camo-feather-tree-black-black-heavy-stone-wash-132",
+    category: "mens",
+    brand: "Carhartt"
+  },
+
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/gift-card",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/eu-football-jersey-blue",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/running-dog-football-shirt-blue",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/running-dog-panelled-track-top-white",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/running-dog-patch-track-pants-navy",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/running-dog-football-shirt-red",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "data:image/gif;base64",
     link: "https://bbcicecream.eu/products/billionaire-boys-club-storage-crate-navy",
     category: "mens",
     brand: "BBC"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88ED0FE-1_c0f28241-b467-4bd4-9aaf-13d163d2139a.jpg?v=1779221470&width=480",
     link: "https://dickies.eu/en-gb/products/954-relaxed-straight-work-jeans-dk0a882a0dd1-navy",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88ED0FE-1_c0f28241-b467-4bd4-9aaf-13d163d2139a.jpg?v=1779221470&width=480",
     link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88ed0fe1-blue",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88EDL23-1_2116d012-e805-4cfb-a4d6-c08e55aff078.jpg?v=1779221464&width=480",
     link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl231-blue",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88EDL44-1_1979980f-499e-4f27-a354-b02fb444014b.jpg?v=1779221444&width=480",
     link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl441-green",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88EDRIN-1_22b8c29f-e0ae-4750-b327-b7740bd8bf14.jpg?v=1779221492&width=480",
     link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edrin1-blue",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A88EDL24-1_a0c570f6-5d40-4365-bfe5-09c26784bb5e.jpg?v=1780412488&width=480",
     link: "https://dickies.eu/en-gb/products/958-baggy-tapered-work-jeans-dk0a88edl241-black",
     category: "mens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZBLK-1_591ee06b-2f16-4b7a-8d78-6c94a0407285.jpg?v=1779221359&width=480",
     link: "https://dickies.eu/en-gb/products/deshler-zip-pullover-hoodie-dk0a88btc481-grey",
     category: "womens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZBLK-1_591ee06b-2f16-4b7a-8d78-6c94a0407285.jpg?v=1779221359&width=480",
     link: "https://dickies.eu/en-gb/products/oakport-zip-hoodie-dk0a4y1zblk1-black",
     category: "womens",
     brand: "Dickies"
   },
 
-  {
+{
     image: "https://dickies.eu/cdn/shop/files/DK0A4Y1ZHG01-1_462af4a6-dec7-48c6-8c47-f42d4b794eab.jpg?v=1782142059&width=480",
     link: "https://dickies.eu/en-gb/products/oakport-zip-hoodie-dk0a4y1zhg01-grey",
     category: "womens",
